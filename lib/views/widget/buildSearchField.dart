@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-Widget buildSearchField(_searchTextController, Function(String) callback) {
+Widget buildSearchField(_searchTextController,String name, Function(String) callback) {
   return TextField(
     controller: _searchTextController,
     cursorColor: Colors.grey,
     decoration: InputDecoration(
-      hintText: 'Find a departments...',
+      hintText: 'Find a $name...',
       border: InputBorder.none,
       hintStyle: TextStyle(color: Colors.grey, fontSize: 18),
     ),

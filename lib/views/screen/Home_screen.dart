@@ -19,11 +19,8 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeState extends State<HomeScreen> {
-  late List<Departments> allCharacters;
   bool isSearching = false;
   final _searchTextController = TextEditingController();
-
-  _HomeState();
 
   @override
   void initState() {
@@ -43,17 +40,12 @@ class _HomeState extends State<HomeScreen> {
         onWillPop: _onWillPop,
         child: Scaffold(
             appBar: AppBar(
-              // leading: isSearching
-              //     ? BackButton(
-              //         color: Colors.grey,
-              //       )
-              //     : Container(),
               title: isSearching
-                  ? buildSearchField(_searchTextController, (text) {
+                  ? buildSearchField(_searchTextController,'Departments', (text) {
                       BlocProvider.of<AppBloc>(context)
                           .add(FindDepartmentsEvent(text: text));
                     })
-                  : buildAppBarTitle(),
+                  : buildAppBarTitle('Departments'),
               actions: buildAppBarActions(context, () {
                 _searchTextController.clear();
                 BlocProvider.of<AppBloc>(context)
@@ -73,7 +65,7 @@ class _HomeState extends State<HomeScreen> {
                     itemCount: state.departments.length,
                     itemBuilder: (context, i) {
                       Departments department = state.departments[i];
-                      return ItemsDepartment(i,department,context);
+                      return itemsDepartment(i,department,context);
                     },
                   );
                 } else if (state is FindDepartmentsStates) {
@@ -81,7 +73,7 @@ class _HomeState extends State<HomeScreen> {
                     itemCount: state.departments.length,
                     itemBuilder: (context, i) {
                       Departments department = state.departments[i];
-                      return ItemsDepartment(i,department,context);
+                      return itemsDepartment(i,department,context);
                     },
                   );
                 }

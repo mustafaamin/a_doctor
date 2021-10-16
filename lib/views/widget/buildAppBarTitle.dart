@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-Widget buildAppBarTitle() {
+Widget buildAppBarTitle(String name) {
   return Text(
-    'Departments',
+    name,
     style: TextStyle(color: Colors.black),
   );
 }

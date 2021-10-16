@@ -19,14 +19,24 @@ class Repository{
     final String response = await rootBundle.loadString('assets/DBTemp/departments.json');
     List<dynamic>  res =  await json.decode(response);
     List<Departments> departments = res.map((e) => Departments.fromJson(e)).toList();
-    List<Departments> afterFinddepartments = departments.where((department)=>department.name.toLowerCase().startsWith(text)).toList();
-    return afterFinddepartments;
+    return departments.where((department)=>department.name.toLowerCase().startsWith(text)).toList();
   }
 
-  Future<List<Doctors>> getAlldoctors() async {
+  Future<List<Doctors>> getAllDoctors(int id) async {
     final String response = await rootBundle.loadString('assets/DBTemp/doctors.json');
     List<dynamic>  res =  await json.decode(response);
-    return res.map((e) => Doctors.fromJson(e)).toList();
-  }
+    List<Doctors> doctors = res.map((e) => Doctors.fromJson(e)).toList();
 
+    List<Doctors> afterFindDoctorss = doctors.where((doctor)=>doctor.departmentId == id).toList();
+    return afterFindDoctorss;
+  }
+  Future<List<Doctors>> findDoctors(int id,String text) async {
+    final String response = await rootBundle.loadString('assets/DBTemp/doctors.json');
+    List<dynamic>  res =  await json.decode(response);
+    List<Doctors> doctors = res.map((e) => Doctors.fromJson(e)).toList();
+
+    List<Doctors> afterFindDoctorss = doctors.where((doctor)=>doctor.departmentId == id).toList()
+        .where((doctors)=>doctors.name.toLowerCase().startsWith(text)).toList();
+    return afterFindDoctorss;
+  }
 }

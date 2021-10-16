@@ -5,6 +5,8 @@ import 'package:bloc/bloc.dart';
 
 import 'departments/departments_event.dart';
 import 'departments/departments_state.dart';
+import 'doctor/doctor_event.dart';
+import 'doctor/doctor_state.dart';
 import 'event.dart';
 import 'state.dart';
 
@@ -25,10 +27,17 @@ class AppBloc extends Bloc<AppEvent, AppState> {
       var departments = await repo.getAlldepartments();
       yield GetAllDepartmentsStates(departments: departments, isSearching: false);
     }else if(event is FindDepartmentsEvent) {
-
+      yield LoadDepartmentsStates();
       var departments = await repo.finddepartments(event.text);
       yield FindDepartmentsStates(departments: departments,isSearching: true);
-
+    }else if(event is GetAllDoctorsEvent){
+      yield LoadDoctorsStates();
+      var doctors = await repo.getAllDoctors(event.departmentID);
+      yield GetAllDoctorsStates(doctors: doctors, isSearching: false);
+    }else if(event is FindDoctorsEvent){
+      yield LoadDoctorsStates();
+      var doctors = await repo.findDoctors(event.departmentID,event.text);
+      yield FindDoctorsStates(doctors: doctors, isSearching: true);
     }
   }
 

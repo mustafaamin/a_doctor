@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "641012480217",
+    "project_id": "doctor-794ad",
+    "storage_bucket": "doctor-794ad.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:641012480217:android:eaad7be5017f529c60e6c8",
+        "android_client_info": {
+          "package_name": "com.example.a_doctor"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "641012480217-5hgjeems19ridldcsfug0lsgjaav038u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDFmsayoo96KSSkeQNZvmgJmQ_ZUIyWk1A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "641012480217-5hgjeems19ridldcsfug0lsgjaav038u.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
