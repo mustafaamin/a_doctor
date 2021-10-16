@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
 
 Widget itemsDepartment(i,department,context) {
-  return Column(children: [
-    Divider(height: 15.0),
-    Dismissible(
+  return Card(
+    color: Colors.black12,
+    shadowColor: Colors.lightBlue,
+    shape: RoundedRectangleBorder(
+      side: BorderSide(color: Colors.white70, width: 2),
+      borderRadius: BorderRadius.circular(10),
+    ),
+    child: Dismissible(
       confirmDismiss: (DismissDirection direction) async {
         Navigator.pushNamed(context, '/doctors' , arguments: department);
         return false;
@@ -16,7 +21,7 @@ Widget itemsDepartment(i,department,context) {
       child: ListTile(
           title: Center(child: Text(department.name,style: TextStyle(
             fontSize: 22.0,
-            color: Colors.blue,
+            color: Colors.black,
           ))),
           subtitle: Center(child: Text('<< Swipe to view doctors >>')),
           leading: CircleAvatar(
@@ -27,5 +32,5 @@ Widget itemsDepartment(i,department,context) {
       ),
       // onTap: () => _navigateToNote(context, trips[position]),
     ),
-  ]);
+  );
 }

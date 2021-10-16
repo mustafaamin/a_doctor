@@ -2,9 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
 
 Widget itemsDoctor(i, doctors, context,Function(String) function) {
-  return Column(children: [
-    Divider(height: 15.0),
-    Dismissible(
+  return Card(
+    color: Colors.black12,
+    shadowColor: Colors.lightBlue,
+    shape: RoundedRectangleBorder(
+      side: BorderSide(color: Colors.white70, width: 2),
+      borderRadius: BorderRadius.circular(10),
+    ),
+    child: Dismissible(
       confirmDismiss: (DismissDirection direction) async {
         Alert(
           context: context,
@@ -42,7 +47,7 @@ Widget itemsDoctor(i, doctors, context,Function(String) function) {
       key: Key(i.toString()),
       child: ListTile(
         title: Center(child: Text(doctors.name)),
-        subtitle: Center(child: Text('<< Swipe to view doctors >>')),
+        subtitle: Center(child: Text('<< Swipe to booking >>')),
         leading: CircleAvatar(
           foregroundColor: Colors.white,
           backgroundColor: Colors.blue,
@@ -51,5 +56,5 @@ Widget itemsDoctor(i, doctors, context,Function(String) function) {
       ),
       // onTap: () => _navigateToNote(context, trips[position]),
     ),
-  ]);
+  );
 }

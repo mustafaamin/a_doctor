@@ -5,25 +5,23 @@ import 'dart:typed_data';
 import 'dart:ui';
 
 import 'package:a_doctor/AppRouter.dart';
-import 'package:a_doctor/AppTheme.dart';
 import 'package:a_doctor/models/repository.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
-import 'package:flutter_native_timezone/flutter_native_timezone.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:rxdart/subjects.dart';
-import 'package:timezone/data/latest.dart' as tz;
-import 'package:timezone/timezone.dart' as tz;
+
 
 import 'blocs/bloc.dart';
 import 'blocs/state.dart';
 import 'models/received_notification.dart';
 
-
 final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
     FlutterLocalNotificationsPlugin();
+
 /// Streams are created so that app can respond to notification-related events
 /// since the plugin is initialised in the `main` function
 final BehaviorSubject<ReceivedNotification> didReceiveLocalNotificationSubject =
@@ -32,10 +30,7 @@ final BehaviorSubject<ReceivedNotification> didReceiveLocalNotificationSubject =
 final BehaviorSubject<String?> selectNotificationSubject =
     BehaviorSubject<String?>();
 
-const MethodChannel platform =
-    MethodChannel('Test');
-
-
+const MethodChannel platform = MethodChannel('Test');
 
 String? selectedNotificationPayload;
 
@@ -44,6 +39,7 @@ Future<void> main() async {
 
   const AndroidInitializationSettings initializationSettingsAndroid =
       AndroidInitializationSettings('logo');
+
   /// Note: permissions aren't requested here just to demonstrate that can be
   /// done later
   final IOSInitializationSettings initializationSettingsIOS =
@@ -88,7 +84,6 @@ Future<void> main() async {
   runApp(MyApp());
 }
 
-
 class MyApp extends StatelessWidget {
   final AppRouter appRouter = AppRouter();
 
@@ -99,8 +94,10 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Doctor Demo',
-        theme: AppTheme.customTheme,
         onGenerateRoute: appRouter.onGenerateRoute,
+        theme: ThemeData(
+          fontFamily: GoogleFonts.openSans().fontFamily
+        ),
       ),
     );
   }

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 
-Widget containerPageView(String path) {
+Widget containerPageView(String path,String text) {
   return Container(
       child: Column(
     children: [
@@ -13,7 +13,7 @@ Widget containerPageView(String path) {
         height: 10,
       ),
       Text(
-        "TEXT HERE !!",
+        text,
         style: TextStyle(fontSize: 26, fontWeight: FontWeight.w400),
       ),
       SizedBox(

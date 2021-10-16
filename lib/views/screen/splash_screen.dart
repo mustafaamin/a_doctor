@@ -42,9 +42,9 @@ class _SplashScreenState extends State<SplashScreen> {
                 bloc.add(PageEvent(activePage: index));
               },
               children: [
-                containerPageView('departments.json'),
-                containerPageView('doctor.json'),
-                containerPageView('booked.json'),
+                containerPageView('departments.json','Welcome Saudi German Hospital'),
+                containerPageView('doctor.json','Select a doctor'),
+                containerPageView('booked.json',''),
               ],
             ),
             BlocBuilder<AppBloc,AppState>(builder: (context, state) {
@@ -73,7 +73,7 @@ class _SplashScreenState extends State<SplashScreen> {
                                       height: 55,
                                       alignment: Alignment.center,
                                       child: const Text(
-                                        'Go',
+                                        'Go!',
                                         style: const TextStyle(
                                             fontSize: 24, color: Colors.black),
                                       ),
