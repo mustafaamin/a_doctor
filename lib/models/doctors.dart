@@ -1,20 +1,21 @@
-import 'package:equatable/equatable.dart';
+class Doctors {
+  late int id;
+  late String name;
+  late int departmentId;
 
-class Doctors  extends Equatable {
-  final int id;
-  final String name;
-  final int departmentId;
+  Doctors({required this.id, required this.name, required this.departmentId});
 
-  Doctors(this.id, this.name, this.departmentId);
-
-
-
-  @override
-  List<Object> get props => [id, name];
-
-  @override
-  String toString() {
-    return 'Doctors { #id: $id, name: $name }';
+  Doctors.fromJson(Map<String, dynamic> json) {
+    id = json['id'];
+    name = json['name'];
+    departmentId = json['departmentId'];
   }
 
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['id'] = this.id;
+    data['name'] = this.name;
+    data['departmentId'] = this.departmentId;
+    return data;
+  }
 }
