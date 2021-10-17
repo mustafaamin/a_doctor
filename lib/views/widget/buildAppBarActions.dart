@@ -9,7 +9,7 @@ List<Widget> buildAppBarActions(BuildContext context, VoidCallback function,
           clearSearch();
           // Navigator.pop(context);
         },
-        icon: Icon(Icons.clear, color: Colors.grey),
+        icon: Icon(Icons.clear, color: Colors.black),
       ),
     ];
   } else {
@@ -18,7 +18,7 @@ List<Widget> buildAppBarActions(BuildContext context, VoidCallback function,
         onPressed: function,
         icon: Icon(
           Icons.search,
-          color: Colors.grey,
+          color: Colors.black,
         ),
       ),
     ];
